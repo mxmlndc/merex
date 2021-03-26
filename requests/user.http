@@ -1,0 +1,16 @@
+GET http://localhost:3000/register
+
+####
+
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "firstName": "Maximiliano",
+    "lastName": "del Caño",
+    "email": "m.delcano@merextrading.com.ar",
+    "cuitCuil": "30708487275",
+    "telephone": "232020204310",
+    "adress": "Cerrito 1423, 5F",
+    "password": "sopdkam1"
+}

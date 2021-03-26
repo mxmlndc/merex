@@ -1,0 +1,41 @@
+<!DOCTsYPE html>
+<html lang="en">
+<!--Head-->    
+<%- include('../partials/headDetail') %>
+<body>
+    <main class="main bd-grid">
+        <article class="card">
+            <div class="card__img">
+                <img src="/img/<%= product.image %>" alt="">
+            </div>
+            <div class="card__name">
+                <p style="text-transform:uppercase"><%=product.category %> <%= product.brand %> <%= product.size %></p>
+            </div>
+            <div class="card__precis">
+                <a href="/shop" class="card__icon" ><i class='bx bx-left-arrow-alt'></i></a>
+                
+                <div>
+                    <span class="card__preci card__preci--iva"><%=product.description %></span>   
+                    <span class="card__preci card__preci--now">$ <%=product.price %></span>
+                    <span class="card__preci card__preci--iva">*<%=product.tax %></span>
+                    <span class="card__preci card__preci--before">Unidades por caja: <%=product.box %></span>
+                    <div class="login__box">
+                        <input type="number" name="number" placeholder="Cantidad en cajas" class="login__input" value="" required>
+                    </div>
+                </div>
+                <form action="/add-to-cart" method="POST">
+                <input type="hidden" name="id" value="<%=product._id%>">
+                <button type="submit" style="background: none; border: none; text-decoration: none;"><a href="/shoppingCart" class="card__icon"><i class='bx bx-cart' ></i></a></button>
+                </form>
+            </div>
+        </article>
+        <!--Footer-->
+        <%- include('../partials/footer') %>
+    </main>
+
+    
+    
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

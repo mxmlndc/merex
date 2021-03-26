@@ -1,0 +1,289 @@
+[{
+  "_id": {
+    "$oid": "60538a3a78e8f01c5b904abe"
+  },
+  "supplier": "AGD",
+  "brand": "Natura",
+  "category": "aceite",
+  "size": "500 CC",
+  "box": 12,
+  "description": "Aceite de girasol Natura 500 CC.",
+  "price": 58.25,
+  "tax": "IVA incluído",
+  "stock": 30,
+  "active": true,
+  "created_at": {
+    "$date": "2021-03-18T17:13:30.193Z"
+  },
+  "image": "aceite500.png"
+},{
+  "_id": {
+    "$oid": "60538a3a78e8f01c5b904abf"
+  },
+  "supplier": "AGD",
+  "brand": "Natura",
+  "category": "aceite",
+  "size": "900 CC",
+  "box": 15,
+  "description": "Aceite de girasol Natura 900 CC.",
+  "price": 98.62,
+  "tax": "IVA incluído",
+  "stock": 60,
+  "active": true,
+  "created_at": {
+    "$date": "2021-03-18T17:13:30.193Z"
+  },
+  "image": "aceite900.png"
+},{
+  "_id": {
+    "$oid": "60538a3a78e8f01c5b904ac0"
+  },
+  "supplier": "AGD",
+  "brand": "Natura",
+  "category": "aceite",
+  "size": "1,5 L",
+  "box": 12,
+  "description": "Aceite de girasol Natura 1,5 L.",
+  "price": 128.44,
+  "tax": "IVA incluído",
+  "stock": 83,
+  "active": true,
+  "created_at": {
+    "$date": "2021-03-18T17:13:30.193Z"
+  },
+  "image": "aceite1500.png"
+},{
+  "_id": {
+    "$oid": "60538a3a78e8f01c5b904ac1"
+  },
+  "supplier": "AGD",
+  "brand": "Natura",
+  "category": "mayonesa",
+  "size": "125 Gr.",
+  "box": 20,
+  "description": "Mayonesa Natura sachet 125 Gr.",
+  "price": 25.95,
+  "tax": "IVA incluído",
+  "stock": 30,
+  "active": true,
+  "created_at": {
+    "$date": "2021-03-18T17:13:30.193Z"
+  },
+  "image": "mayo125.png"
+},{
+  "_id": {
+    "$oid": "60538a3a78e8f01c5b904ac2"
+  },
+  "supplier": "AGD",
+  "brand": "Natura",
+  "category": "mayonesa",
+  "size": "250 Gr.",
+  "box": 12,
+  "description": "Mayonesa Natura Doy Pack 250 Gr.",
+  "price": 52.33,
+  "tax": "IVA incluído",
+  "stock": 30,
+  "active": true,
+  "created_at": {
+    "$date": "2021-03-18T17:13:30.193Z"
+  },
+  "image": "mayo250.png"
+},{
+  "_id": {
+    "$oid": "60538a3a78e8f01c5b904ac3"
+  },
+  "supplier": "AGD",
+  "brand": "Natura",
+  "category": "mayonesa",
+  "size": "500 Gr.",
+  "box": 12,
+  "description": "Mayonesa Natura Doy Pack con pico 500 Gr.",
+  "price": 73.91,
+  "tax": "IVA incluído",
+  "stock": 30,
+  "active": true,
+  "created_at": {
+    "$date": "2021-03-18T17:13:30.193Z"
+  },
+  "image": "mayo500.png"
+},{
+  "_id": {
+    "$oid": "60538a3a78e8f01c5b904ac4"
+  },
+  "supplier": "AGD",
+  "brand": "Mayoliva",
+  "category": "mayonesa",
+  "size": "125 Gr.",
+  "box": 20,
+  "description": "Mayonesa Mayoliva sachet 125 Gr.",
+  "price": 25.95,
+  "tax": "IVA incluído",
+  "stock": 30,
+  "active": true,
+  "created_at": {
+    "$date": "2021-03-18T17:13:30.193Z"
+  },
+  "image": "mayoliva125.png"
+},{
+  "_id": {
+    "$oid": "60538a3a78e8f01c5b904ac5"
+  },
+  "supplier": "AGD",
+  "brand": "Mayoliva",
+  "category": "mayonesa",
+  "size": "250 Gr.",
+  "box": 12,
+  "description": "Mayonesa Mayoliva sachet 250 Gr.",
+  "price": 25.95,
+  "tax": "IVA incluído",
+  "stock": 30,
+  "active": true,
+  "created_at": {
+    "$date": "2021-03-18T17:13:30.193Z"
+  },
+  "image": "mayoliva250.png"
+},{
+  "_id": {
+    "$oid": "60538a3a78e8f01c5b904ac6"
+  },
+  "supplier": "AGD",
+  "brand": "Mayoliva",
+  "category": "mayonesa",
+  "size": "500 Gr.",
+  "box": 12,
+  "description": "Mayonesa Mayoliva Doy Pack con pico 500 Gr.",
+  "price": 73.46,
+  "tax": "IVA incluído",
+  "stock": 30,
+  "active": true,
+  "created_at": {
+    "$date": "2021-03-18T17:13:30.193Z"
+  },
+  "image": "mayoliva500.png"
+},{
+  "_id": {
+    "$oid": "60538a3a78e8f01c5b904ac7"
+  },
+  "supplier": "AGD",
+  "brand": "Natura",
+  "category": "ketchup",
+  "size": "250 Gr.",
+  "box": 12,
+  "description": "Ketchup Natura Doy Pack 250 Gr.",
+  "price": 45.95,
+  "tax": "IVA incluído",
+  "stock": 30,
+  "active": true,
+  "created_at": {
+    "$date": "2021-03-18T17:13:30.193Z"
+  },
+  "image": "ket250.png"
+},{
+  "_id": {
+    "$oid": "60538a3a78e8f01c5b904ac8"
+  },
+  "supplier": "AGD",
+  "brand": "Natura",
+  "category": "mostaza",
+  "size": "250 Gr.",
+  "box": 12,
+  "description": "Mostaza Natura Doy Pack 250 Gr.",
+  "price": 45.95,
+  "tax": "IVA incluído",
+  "stock": 30,
+  "active": true,
+  "created_at": {
+    "$date": "2021-03-18T17:13:30.193Z"
+  },
+  "image": "most250.png"
+},{
+  "_id": {
+    "$oid": "60538a3a78e8f01c5b904ac9"
+  },
+  "supplier": "AGD",
+  "brand": "Natura",
+  "category": "salsa golf",
+  "size": "250 Gr.",
+  "box": 12,
+  "description": "Salsa Golf Natura Doy Pack 250 Gr.",
+  "price": 45.95,
+  "tax": "IVA incluído",
+  "stock": 30,
+  "active": true,
+  "created_at": {
+    "$date": "2021-03-18T17:13:30.193Z"
+  },
+  "image": "golf250.png"
+},{
+  "_id": {
+    "$oid": "60538a3a78e8f01c5b904aca"
+  },
+  "supplier": "AGD",
+  "brand": "Natura",
+  "category": "rocío vegetal",
+  "size": "120 Gr.",
+  "box": 12,
+  "description": "Rocío Vegetal Natura 120 Gr.",
+  "price": 45.95,
+  "tax": "IVA incluído",
+  "stock": 30,
+  "active": true,
+  "created_at": {
+    "$date": "2021-03-18T17:13:30.193Z"
+  },
+  "image": "rocio_clasico.png"
+},{
+  "_id": {
+    "$oid": "60538a3a78e8f01c5b904acb"
+  },
+  "supplier": "AGD",
+  "brand": "Natura",
+  "category": "rocío vegetal",
+  "size": "120 Gr.",
+  "box": 12,
+  "description": "Rocío Vegetal Oliva Natura 120 Gr.",
+  "price": 45.95,
+  "tax": "IVA incluído",
+  "stock": 30,
+  "active": true,
+  "created_at": {
+    "$date": "2021-03-18T17:13:30.193Z"
+  },
+  "image": "rocio_oliva.png"
+},{
+  "_id": {
+    "$oid": "60538a3a78e8f01c5b904acc"
+  },
+  "supplier": "AGD",
+  "brand": "Natura",
+  "category": "aceite",
+  "size": "500 CC",
+  "box": 6,
+  "description": "Aceite de Oliva Natura -lata- 500 CC.",
+  "price": 128.44,
+  "tax": "IVA incluído",
+  "stock": 83,
+  "active": true,
+  "created_at": {
+    "$date": "2021-03-18T17:13:30.193Z"
+  },
+  "image": "oliva500.png"
+},{
+  "_id": {
+    "$oid": "60538a3a78e8f01c5b904acd"
+  },
+  "supplier": "AGD",
+  "brand": "Familiar",
+  "category": "aceite",
+  "size": "1,5 L",
+  "box": 12,
+  "description": "Aceite de girasol Familiar 1,5 L.",
+  "price": 128.44,
+  "tax": "IVA incluído",
+  "stock": 83,
+  "active": true,
+  "created_at": {
+    "$date": "2021-03-18T17:13:30.193Z"
+  },
+  "image": "aceite_fam_1500.png"
+}]
