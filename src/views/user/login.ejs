@@ -20,24 +20,24 @@
                         <h1 class="login__title">INGRESAR</h1>
 
                         <div class="login__box">
-                            <i class='bx bx-user login__icon'></i>
-                            <input type="text" name="email" placeholder="Email" class="login__input" aria-describedby="emailHelp">
+                            <label for="email"><i class='bx bx-user login__icon'></i></label>
+                            <input type="email" name="email" id="email" placeholder="Email" class="login__input" aria-describedby="emailHelp">
                         </div>
 
                         <div class="login__box">
-                            <i class='bx bx-lock login__icon'></i>
-                            <input type="password" name="password" placeholder="Password" class="login__input">
+                            <label for="password"><i class='bx bx-lock login__icon'></i></label>
+                            <input type="password" name="password" id="password" placeholder="Password" class="login__input">
                         </div>
 
                         <a href="#" class="login__forgot">Olvidaste la clave?</a>
 
                         <button type="submit" class="login__button">Ingresar</button>    
                         
-                        <div>
-                            <span class="login__account">No tenés cuenta?</span>
-                            <a href="/register"><span class="login__signin" id="sign-up">Crear</span></a>
-                        </div>
                     </form>
+                    <div>
+                        <span class="login__account">No tenés cuenta?</span>
+                        <a href="/register"><span class="login__signin" id="sign-up">Crear</span></a>
+                    </div>
                 </div>
             </div>
         </div>

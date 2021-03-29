@@ -5,18 +5,56 @@
 <body>
     <main class="main bd-grid">
         <article class="card">
-            <table>
-                <tr>
-                    <th>Producto</th>
-                    <th>Cantidad</th>
-                    <th>Subtotal</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table>
+            <% if (cart === null || cart.items.length == 0) {%>
+                <h2>No item in shopping Cart</h2>
+                <%} else {%>
+                    <h2>Shopping Cart Detail</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for(let i = 0; i < cart.items.length; i++){
+                                let eachItem = cart.items[i];  
+                            %>
+                                <tr>
+                                    <th scope="row">
+                                        <%= i+1%>
+                                    </th>
+                                    <td>
+                                        <%= eachItem.productId.title%>
+                                    </td>
+                                    <td>
+                                        <%= eachItem.productId.price%>
+                                    </td>
+                                    <td>
+                                        <%= eachItem.qty%>
+                                    </td>
+                                    <td>
+                                        <form action="/delete-cart" method="POST">
+                                            <input type="hidden" name="prodId" value="<%= eachItem.productId._id%>">
+                                            <button type="submit" class="btn btn-primary">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <%}%>
+                                    <tr>
+                                        <td>Total Price: </td>
+                                        <td colspan="4">
+                                            <%= cart.totalPrice%>
+                                        </td>
+                                    </tr>
+                        </tbody>
+                    </table>
+                    <%}%>
+
+                        <br>
         </article>
         <!--Footer-->
         <%- include('../partials/footer') %>

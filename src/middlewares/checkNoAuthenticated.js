@@ -1,8 +1,8 @@
-function checkAuthenticated(req, res, next) {
+function checkNoAuthenticated(req, res, next) {
     if( req.isAuthenticated()){
        return res.redirect('/login')
     }
     next()
 }
 
-module.exports = checkAuthenticated
+export default checkNoAuthenticated;

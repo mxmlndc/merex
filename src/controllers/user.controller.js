@@ -5,11 +5,11 @@ import { getPagination } from "../libs/getPagination";
 import bcrypt from "bcrypt";
 import passport from "passport";
 
-import { initialize } from "../libs/passportConfig";
+import initialize from "../libs/passportConfig";
 initialize(
     passport, 
-    email => User.find(users => users.email == email),
-    id => User.find(users => users.id == id) 
+    email => User.find(users => users.email === email),
+    id => User.find(users => users.id === id) 
     );
 
 
@@ -18,6 +18,7 @@ export const index = async (req,res) => {
 };
 
 export const createUser = async (req, res)=> {
+    const hashedPassword = await bcrypt.hash(req.body.password, 10)
     const newUser = new User()
     newUser.firstName = req.body.firstName;
     newUser.lastName = req.body.lastName;
@@ -25,34 +26,31 @@ export const createUser = async (req, res)=> {
     newUser.cuitCuil = req.body.cuitCuil;
     newUser.telephone = req.body.telephone;
     newUser.adress = req.body.adress;
-    newUser.password = bcrypt.hashSync (req.body.password, 10);
+    newUser.password = hashedPassword;
     
     await newUser.save()
     
-    res.redirect('/register')
+    res.redirect('/login')
  };
-
-export const loginUser = async (req, res)=> {
-    const user = User.find(users => users.email = req.body.email)
-    if (user == null){
-        return res.render(path.resolve(__dirname,  '..', 'views', 'user', 'login'))
-    }
-    try {
-        if( await bcrypt.compare(req.body.password, user.password)){
-            res.redirect('/')
-    }else{
-        res.send('Not allowed')
-    } 
-    }catch (error) {
-        res.status(500)({
-            message: error.message || "Something goes wrong"
-    })
-}
-};
-
 export const enter = async (req,res)=> {
     res.render(path.resolve(__dirname, '..', 'views', 'user', 'login'))
 
+};
+
+export const loginUser = async (req, res)=> {
+    const { mail } = req.body; 
+    try {
+        const user = await User.find(mail);
+        await bcrypt.compare(req.body.password, user.password)
+        res.redirect('/')
+
+    if (!user)
+        return res.render(path.resolve(__dirname,  '..', 'views', 'user', 'login'))
+        }catch (error) {
+        res.status(500)({
+        message: error.message || "Something goes wrong"
+    })
+}
 };
 
 export const logOut = async (req,res)=> {

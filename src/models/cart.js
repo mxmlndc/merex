@@ -1,6 +1,6 @@
 let cart = null;
 
-module.exports = class Cart {
+class Cart {
 
     static save(product) {
 
@@ -32,3 +32,5 @@ module.exports = class Cart {
     }
 
 }
+
+export default Cart;

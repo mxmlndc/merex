@@ -3,10 +3,10 @@ import passlocal from "passport-local";
 
 const localStrategy = passlocal.Strategy;
 
-export const initialize = (passport, getUserByEmail, getUserById) => {
+function initialize (passport, getUserByEmail, getUserById) {
     const authenticateUser = async (email, password, done) => {
         const user = getUserByEmail(email)
-        if (user == null) {
+        if (user === null) {
             return done(null, false, { message: 'No hay usuarios con ese email'})
         }
 
@@ -27,3 +27,5 @@ export const initialize = (passport, getUserByEmail, getUserById) => {
         return done(null, getUserById(id))
     })
 }
+
+export default initialize;

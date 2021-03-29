@@ -18,43 +18,43 @@
                         <h1 class="login__title">CREAR CUENTA</h1>
 
                         <div class="login__box">
-                            <i class='bx bx-user login__icon'></i>
-                            <input type="text"  name="firstName" placeholder="Nombre" class="login__input" required>
+                            <label for="firstName"><i class='bx bx-user login__icon'></i></label>
+                            <input type="text"  name="firstName" id="firstName" placeholder="Nombre" class="login__input" required>
                         </div>
 
                         <div class="login__box">
-                            <i class='bx bx-user login__icon'></i>
-                            <input type="text"  name="lastName" placeholder="Apellido" class="login__input" required>
+                            <label for="lastName"><i class='bx bx-user login__icon'></i></label>
+                            <input type="text"  name="lastName" id="lastName" placeholder="Apellido" class="login__input" required>
                         </div>
 
                         <div class="login__box">
-                            <i class='bx bx-at login__icon'></i>
-                            <input type="email" name="email" placeholder="Email" class="login__input" required>
+                            <label for="email"><i class='bx bx-at login__icon'></i></label>
+                            <input type="email" name="email" id="email" placeholder="Email" class="login__input" required>
                         </div>
 
                         <div class="login__box">
-                            <i class='bx bx-id-card login__icon' ></i>
-                            <input type="number" name="cuitCuil" placeholder="CUIT/CUIL(sin guiónes)" class="login__input" required>
+                            <label for="cuitCuil"><i class='bx bx-id-card login__icon' ></i></label>
+                            <input type="number" name="cuitCuil" id="cuitCuil" placeholder="CUIT/CUIL(sin guiónes)" class="login__input" required>
                         </div>
 
                         <div class="login__box">
-                            <i class='bx bx-home login__icon' ></i>
-                            <input type="text" name="adress" placeholder="Dirección" class="login__input" required>
+                            <label for="adress"><i class='bx bx-home login__icon' ></i></label>
+                            <input type="text" name="adress" id="adress" placeholder="Dirección" class="login__input" required>
                         </div>
 
                         <div class="login__box">
-                            <i class='bx bx-phone login__icon'></i>
-                            <input type="tel" name="telephone" placeholder="Teléfono" class="login__input" required>
+                            <label for="telephone"><i class='bx bx-phone login__icon'></i></label>
+                            <input type="tel" name="telephone" id="telephone" placeholder="Teléfono" class="login__input" required>
                         </div>
 
                         <div class="login__box">
-                            <i class='bx bx-lock login__icon'></i>
-                            <input type="password" name="password" placeholder="Contraseña" class="login__input" required>
+                            <label for="password"><i class='bx bx-lock login__icon'></i></label>
+                            <input type="password" name="password" id="password" placeholder="Contraseña" class="login__input" required>
                         </div>
 
                         <div class="login__box">
-                            <i class='bx bx-photo login__icon'></i>
-                            <input type="file" name="image">
+                            <label for="image"><i class='bx bx-photo login__icon'></i></label>
+                            <input type="file" name="image" id="image">
                         </div>
 
                         <button type="submit" class="login__button">Crear</button>
@@ -63,7 +63,7 @@
                             <span class="login__account">Ya tenés cuenta?</span>
                             <a href="/login"><span class="login__signup" id="sign-in">Ingresar</span></a>
                         </div>
-                    </form>
+                        </form>
                 </div> 
             </div>        
         </div>

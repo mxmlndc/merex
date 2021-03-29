@@ -13,11 +13,14 @@ import session from "express-session";
 import passport from "passport";
 import passlocal from "passport-local";
 import methodOverride from "method-override";
-
+import bodyParser from "body-parser";
+import fs from "fs";
+import mongoose from "mongoose";
 
 import UserRoutes from "./routes/user.routes";
 import ProductRoutes from "./routes/product.routes";
 import WebRoutes from "./routes/web.routes";
+import ShopRoutes from "./routes/shop.routes";
 
 const app = express();
 
@@ -26,6 +29,7 @@ app.set("port", process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static(path.resolve(__dirname, '..', 'assets')));
+mongoose.set('useCreateIndex', true);
 
 //middlewares
 const corsOptions = {};
@@ -49,12 +53,14 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(methodOverride('_method'));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 //routes
 app.use(UserRoutes);
 app.use(ProductRoutes);
 app.use(WebRoutes);
+app.use(ShopRoutes);
 
 
 export default app;

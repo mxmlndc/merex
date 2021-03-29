@@ -14,28 +14,6 @@ export const detailProduct = async (req,res) => {
     res.render(path.resolve(__dirname, '..', 'views','product','productDetail'), {product});
 };
 
-export const addToCart = (req,res) => {
-    Product.findById(req.body.id)
-    .then( product => {
-        req.user.addToCart(product)
-            .then(result =>{
-                res.redirect('/shop');
-            })
-    })
-    .catch (err => console.log(err));
-}
-
-export const getCart = (req, res, next) => {
-    req.user
-        .populate('cart.items.productId')
-        .execPopulate()
-        .then(user => {
-            console.log(user);
-            res.render('shoppingCart', { cart: user.cart, pageTitle: 'Shopping Cart Detail', path: '/shoppingCart', name: 'Edward' });
-        })
-        .catch(err => console.log(err));
-}
-
 export const findAllProducts = async (req, res)=> {
     try {
         const { size, page, lastName } = req.query

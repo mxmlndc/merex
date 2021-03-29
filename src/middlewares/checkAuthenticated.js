@@ -5,4 +5,4 @@ function checkAuthenticated(req, res, next) {
     res.redirect('/login')
 }
 
-module.exports = checkAuthenticated
+export default checkAuthenticated
