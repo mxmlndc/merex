@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/admin/head') %> 
+<body>
+    
+    <input type="checkbox" id="nav-toggle">
+    
+    <%- include('../partials/admin/sidebar') %> 
+
+    <div class="main-content">
+        
+        <%- include('../partials/admin/header') %> 
+
+        <main>
+                <div class="proyects">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Stock</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table width="100%">
+                                    <thead>
+                                        <tr>
+                                            <td>ID</td>
+                                            <td>Producto</td>
+                                            <td>Stock</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% products.forEach(product => { %>
+                                            <tr>
+                                              <td><%= product._id%> </td>
+                                              <td><%= product.description%> </td>
+                                              <td><%= product.stock%> </td>
+                                            </tr>
+                                            <% }); %>
+                                    </tbody>
+                                </table>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+        </main>
+    </div>
+</body>
+</html>

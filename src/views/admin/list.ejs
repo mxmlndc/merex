@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/admin/head') %> 
+<body>
+    
+    <input type="checkbox" id="nav-toggle">
+    
+    <%- include('../partials/admin/sidebar') %> 
+
+    <div class="main-content">
+        
+        <%- include('../partials/admin/header') %> 
+
+        <main>
+                <div class="proyects">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Productos</h3>
+                            <button><a href="/dashboard/new-product" style="text-decoration: none; color: aliceblue;">Agregar<span class="las la-arrow-right"></span></a></span></button>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table width="100%">
+                                    <thead>
+                                        <tr>
+                                            <td>ID</td>
+                                            <td>Producto</td>
+                                            <td>Ver</td>
+                                            <td>Editar</td>
+                                            <td>Borrar</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% products.forEach(product => { %>
+                                            <tr>
+                                              <td><%= product._id%> </td>
+                                              <td><%= product.description%> </td>
+                                              <td><a href="/productDetail/<%= product._id%> " style="text-decoration: none; color: rgb(25, 28, 31);"><i class="las la-eye"></i></a></td>
+                                              <td><a href="/dashboard/update/<%= product._id%> " style="text-decoration: none; color: rgb(25, 28, 31);"><i class="las la-pencil-alt"></i></a></td>
+                                              <td><a href="/dashboard/delete<%= product._id%>" style="text-decoration: none; color: rgb(25, 28, 31);"><i class="las la-trash-alt"></i></a></td>
+                                            </tr>
+                                            <% }); %>
+                                    </tbody>
+                                </table>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/admin/head') %> 
+<body>
+    
+    <input type="checkbox" id="nav-toggle">
+    
+    <%- include('../partials/admin/sidebar') %> 
+
+    <div class="main-content">
+        
+        <%- include('../partials/admin/header') %> 
+
+        <main>
+            <div class="proyects">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Nuevo producto</h3>
+                    </div>                  
+                        <section class="l-form">           
+                            <form action="/dashboard/new-product" class="form" id="login-up" method="POST" enctype="multipart/form-data">
+                             <h1 class="form__title" > Ingresar </h1>   
+                                <div class="form__div">
+                                    <input type="text"  name="supplier" id="supplier" class="form__input" required> 
+                                    <label for="supplier" class="form__label">Proveedor</label>
+                                </div>
+                                <div class="form__div">
+                                    <input type="text"  name="brand" id="brand" class="form__input" required> 
+                                    <label for="brand" class="form__label">Marca</label>
+                                </div>
+                                <div class="form__div">
+                                    <input type="text"  name="category" id="category" class="form__input" required> 
+                                    <label for="category" class="form__label">Categoría</label>
+                                </div>
+                                <div class="form__div">
+                                    <input type="text"  name="size" id="size" class="form__input" required> 
+                                    <label for="size" class="form__label">Tamaño</label>
+                                </div>
+                                <div class="form__div">
+                                    <input type="number"  name="box" id="box" class="form__input" required> 
+                                    <label for="box" class="form__label">Bulto</label>
+                                </div>
+                                <div class="form__div">
+                                    <input type="text"  name="description" id="description" class="form__input" required> 
+                                    <label for="description" class="form__label">Descripción</label>
+                                </div>
+                                <div class="form__div">
+                                    <input type="number"  name="price" id="price" class="form__input" required> 
+                                    <label for="price" class="form__label">Precio</label>
+                                </div>
+                                <div class="form__div">
+                                    <input type="text"  name="tax" id="tax" class="form__input" required> 
+                                    <label for="tax" class="form__label">IVA</label>
+                                </div>
+                                <div class="form__div">
+                                    <input type="number"  name="stock" id="stock" class="form__input" required> 
+                                    <label for="stock" class="form__label">Stock/Cajas</label>
+                                </div>
+                                <div class="form__div">
+                                    <select name="active" id="active" class="form__input" required>
+                                        <option value="true">Disponible</option>
+                                        <option value="false">No disponible</option>
+                                    </select>
+                                    <label for="active" class="form__label">Disponible</label>
+                                </div>
+                                <div class="form__div">
+                                    <input type="text"  name="image" id="image" class="form__input" required> 
+                                    <label for="image" class="form__label">Imagen</label>
+                                </div>
+                                    
+                                    <button type="submit" class="form__button">Aceptar</button>
+                            </form>                           
+                        </section>                   
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

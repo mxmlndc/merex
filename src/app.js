@@ -21,6 +21,7 @@ import UserRoutes from "./routes/user.routes";
 import ProductRoutes from "./routes/product.routes";
 import WebRoutes from "./routes/web.routes";
 import ShopRoutes from "./routes/shop.routes";
+import AdminRoutes from "./routes/admin.routes";
 
 const app = express();
 
@@ -61,6 +62,6 @@ app.use(UserRoutes);
 app.use(ProductRoutes);
 app.use(WebRoutes);
 app.use(ShopRoutes);
-
+app.use(AdminRoutes);
 
 export default app;
