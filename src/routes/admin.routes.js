@@ -16,7 +16,7 @@ router.post ('/dashboard/new-product', adminCtrl.createProduct)
 
 router.delete ('/dashboard/delete/product:id', adminCtrl.deleteProduct)
 
-router.get('/dashboard/update/product:id', adminCtrl.editProduct)
+router.get('/dashboard/edit/product:id', adminCtrl.editProduct)
 
 router.put('/dashboard/update/product:id', adminCtrl.updateProduct)
 

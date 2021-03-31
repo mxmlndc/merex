@@ -40,8 +40,12 @@
                                                 <td><%= product.category%></td>
                                                 <td><%= product.size%></td>
                                                 <td><a href="/productDetail/<%= product._id%> " style="text-decoration: none; color: rgb(25, 28, 31);"><i class="las la-eye"></i></a></td>
-                                                <td><a href="/dashboard/update/<%= product._id%> " style="text-decoration: none; color: rgb(25, 28, 31);"><i class="las la-pencil-alt"></i></a></td>
-                                                <td><a href="/dashboard/delete<%= product._id%>" style="text-decoration: none; color: rgb(25, 28, 31);"><i class="las la-trash-alt"></i></a></td>
+                                                <td><a href="/dashboard/edit/<%= product._id%> " style="text-decoration: none; color: rgb(25, 28, 31);"><i class="las la-pencil-alt"></i></a></td>
+                                                <td>
+                                                    <form method="POST" action="/dashboard/delete/<%= product._id %>?_method=DELETE">
+                                                        <button type="submit"><i class="las la-trash-alt"></i></button>
+                                                    </form>
+                                                </td>  
                                             </tr>
                                             <% }); %>
                                     </tbody>

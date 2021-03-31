@@ -32,18 +32,17 @@ export const createProduct = async (req, res)=> {
     res.redirect('/dashboard/product-list')
 };
 
-export const create =async (req,res) => {
+export const create = async (req,res) => {
     res.render(path.resolve(__dirname, '..', 'views','admin','create'));
 };
 
 export const deleteProduct = async (req,res) => {
-    const { id } = req.params;
+    const { id } = req.params.id;
 
     try {
-        await Product.findByIdAndDelete(id)
-    res.json({
-        message: "Product were deleted successfully"
-    });
+        await Product.destroy(id)
+        res.redirect('/dashboard/product-list')
+
     } catch (error) {
         res.status(500)({
             message: error.message || `Error borrando el id: ${id}`
@@ -52,7 +51,7 @@ export const deleteProduct = async (req,res) => {
 };
 
 export const editProduct =async (req,res) => {
-    const id  = req.params.id;
+    const {id}  = req.params;
     try {
         let productEdit = await Product.find(products => products.id == id) 
         res.render(path.resolve(__dirname, '..', 'views','admin','edit'), {productEdit});

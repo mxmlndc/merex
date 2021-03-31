@@ -52,6 +52,8 @@ h1{
 img{
     max-width: 100%;
     height: auto;
+    max-height: 300px;
+    padding-left: 1.5rem;
 }
 a{
     text-decoration: none;
@@ -111,6 +113,7 @@ article:nth-child(4){
 .card__img{
     width: 180px;
     height: auto;
+    max-height: 400px;
     padding: 3rem 0;
     transition: .5s;
 }
