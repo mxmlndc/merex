@@ -8,4 +8,6 @@ router.get ('/shop', productCtrl.showAllProducts)
 
 router.get ('/productDetail/:id', productCtrl.detailProduct)
 
+router.get ('/search-result', productCtrl.findOneProduct)
+
 export default router;

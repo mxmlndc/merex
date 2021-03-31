@@ -12,4 +12,6 @@ router.post('/add-to-cart', shopCtrl.addToCart);
 
 router.post('/delete-cart', shopCtrl.deleteInCart);
 
+router.get ('/search-result', shopCtrl.findOneProduct)
+
 export default router;

@@ -23,8 +23,10 @@
                                 <table width="100%">
                                     <thead>
                                         <tr>
-                                            <td>ID</td>
-                                            <td>Producto</td>
+                                            <td>Proveedor</td>
+                                            <td>Marca</td>
+                                            <td>Tipo</td>
+                                            <td>presentación</td>
                                             <td>Ver</td>
                                             <td>Editar</td>
                                             <td>Borrar</td>
@@ -33,11 +35,13 @@
                                     <tbody>
                                         <% products.forEach(product => { %>
                                             <tr>
-                                              <td><%= product._id%> </td>
-                                              <td><%= product.description%> </td>
-                                              <td><a href="/productDetail/<%= product._id%> " style="text-decoration: none; color: rgb(25, 28, 31);"><i class="las la-eye"></i></a></td>
-                                              <td><a href="/dashboard/update/<%= product._id%> " style="text-decoration: none; color: rgb(25, 28, 31);"><i class="las la-pencil-alt"></i></a></td>
-                                              <td><a href="/dashboard/delete<%= product._id%>" style="text-decoration: none; color: rgb(25, 28, 31);"><i class="las la-trash-alt"></i></a></td>
+                                                <td><%= product.supplier%> </td>
+                                                <td><%= product.brand%> </td>
+                                                <td><%= product.category%></td>
+                                                <td><%= product.size%></td>
+                                                <td><a href="/productDetail/<%= product._id%> " style="text-decoration: none; color: rgb(25, 28, 31);"><i class="las la-eye"></i></a></td>
+                                                <td><a href="/dashboard/update/<%= product._id%> " style="text-decoration: none; color: rgb(25, 28, 31);"><i class="las la-pencil-alt"></i></a></td>
+                                                <td><a href="/dashboard/delete<%= product._id%>" style="text-decoration: none; color: rgb(25, 28, 31);"><i class="las la-trash-alt"></i></a></td>
                                             </tr>
                                             <% }); %>
                                     </tbody>

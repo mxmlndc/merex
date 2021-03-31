@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Head-->    
+<%- include('../partials/head') %>
+<body>
+    <header class="l-header" id="header">
+        <!--NavBar-->
+        <%- include('../partials/navBar') %>
+    </header>
+
+    <main class="l-main">
+        <section class="featured section" id="featured">
+            <h2 class="section-title">Búsqueda de: <%= searchOptions.description %>  </h2>
+
+            <div class="featured__container bd-grid">
+                <% products.forEach (function(product) { %>
+                    <article class="sneaker">
+                        <img src="/img/<%= product.image %>" alt="" class="sneaker__img">
+                        <span class="sneaker__brand"><%= product.brand %></span>
+                        <span class="sneaker__name"><%= product.category %> <%= product.size %></span>
+                        <span class="sneaker__preci">$ <%= product.price %> </span>
+                        <a href="/productDetail/<%= product._id %>" class="button-light">Comprar <i class='bx bx-right-arrow-alt button-icon'></i></a>
+                    </article>
+                <% }) %> 
+            </div>
+
+            <div class="sneaker__pages bd-grid">
+                <div>
+                    <span class="sneaker__pag">1</span>
+                    <span class="sneaker__pag">2</span>
+                    <span class="sneaker__pag">3</span>
+                    <span class="sneaker__pag">&#8594;</span>
+                </div>
+            </div>
+        </section>
+
+        <!--Footer-->
+        <%- include('../partials/footer') %>
+    </main>
+
+    
+    
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -29,4 +29,7 @@ router.delete ('/dashboard/users:id', userCtrl.deleteUser)
 
 router.put('/dashboard/users:id', userCtrl.updateUser)
 
+router.get ('/search-result', userCtrl.findOneProduct)
+
+
 export default router;

@@ -6,4 +6,7 @@ const router = Router()
 
 router.get ('/', webCtrl.index)
 
+router.get ('/search-result', webCtrl.findOneProduct)
+
+
 export default router;

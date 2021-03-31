@@ -41,20 +41,16 @@ export const findAllProducts = async (req, res)=> {
 };
 
 export const findOneProduct = async (req,res) => {
-    const { id } = req.params;
-    
-    try {
-    const product = await Product.findById(id)
-
-    if (!product)
-        return res
-            .status(404)
-            .json({message: `El producto con el id: ${id} no existe`})
-    res.json(product)
-    
-    } catch (error) {
-        res.status(500)({
-            message: error.message || `Error devolviendo el id: ${id}`,
-        });
+    let searchOptions = {}
+    if (req.query.description != null && req.query.description !== '') {
+        searchOptions.description = new RegExp(req.query.description, 'i')
+    }
+    try{
+        const products = await Product.find(searchOptions)
+        res.render('/search-result/index', {
+            products: products,
+            searchOptions: req.query })
+    }catch{
+        res.redirect('/')
     }
 };

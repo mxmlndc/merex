@@ -14,12 +14,12 @@
             <li class="nav__item"><a href="/shop" class="nav__link">Shop</a></li>
         </ul>
     </div>
-
-    <div>
-        <form action="/logout?_method=delete" method="POST">
-            <button type="submit"> Cerrar sesión </button>
-        </form>
-    </div>
+    <form action="/search-result" method="GET">
+        <div class="search-wrapper">
+            <button type="submit" style="text-decoration: none; border: none; background: none;"><span><i class='bx bx-search'></i></span></button>
+            <input type="text" name="description" placeholder="Buscar" value="">
+        </div>
+    </form>
 
     <div class="nav__shop">
         <a href="/shop" class="nav__link"><i class='bx bx-shopping-bag' ></i></a>

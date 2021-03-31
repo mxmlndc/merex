@@ -52,9 +52,15 @@ export const deleteProduct = async (req,res) => {
 };
 
 export const editProduct =async (req,res) => {
-    const { id } = req.params.id;
-    const productEdit = await Product.find(products => products.id == id) 
-    res.render(path.resolve(__dirname, '..', 'views','admin','edit'), {productEdit});
+    const id  = req.params.id;
+    try {
+        let productEdit = await Product.find(products => products.id == id) 
+        res.render(path.resolve(__dirname, '..', 'views','admin','edit'), {productEdit});
+    } catch (error) {
+        res.status(500)({
+            message: error.message || `Error actualizando el id: ${id}`
+        })
+    }
 };
 
 export const updateProduct = async (req, res) => {
@@ -75,4 +81,19 @@ export const updateProduct = async (req, res) => {
 export const stock =async (req,res) => {
     const products = await Product.find();
     res.render(path.resolve(__dirname, '..', 'views','admin','stock'), {products});
+};
+
+export const findOneProduct = async (req,res) => {
+    let searchOptions = {}
+    if (req.query.description != null && req.query.description !== '') {
+        searchOptions.description = new RegExp(req.query.description, 'i')
+    }
+    try{
+        const products = await Product.find(searchOptions)
+        res.render(path.resolve(__dirname, '..', 'views','product','search'), {
+            products: products,
+            searchOptions: req.query })
+    }catch{
+        res.redirect('/')
+    }
 };

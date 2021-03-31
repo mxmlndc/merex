@@ -274,16 +274,16 @@ tr td:last-child{
     align-items: center;
 }
 
-.status.purple{
-    background: rebeccapurple;
+.status.green{
+    background: greenyellow;
 }
 
-.status.pink{
-    background: deeppink;
+.status.red{
+    background: tomato;
 }
 
 .status.orange{
-    background: orangered;
+    background: rgb(241, 166, 26);
 }
 
 .table-responsive{

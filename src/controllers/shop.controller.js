@@ -1,5 +1,6 @@
 import path from "path";
 import User from "../models/user";
+import Product from "../models/product";
 
 export const addToCart = (req,res) => {
     req.user.addToCart(req.body.id)
@@ -26,3 +27,18 @@ export const deleteInCart = (req, res, next) => {
         }).catch(err => console.log(err));
 
 }
+
+export const findOneProduct = async (req,res) => {
+    let searchOptions = {}
+    if (req.query.description != null && req.query.description !== '') {
+        searchOptions.description = new RegExp(req.query.description, 'i')
+    }
+    try{
+        const products = await Product.find(searchOptions)
+        res.render(path.resolve(__dirname, '..', 'views','product','search'), {
+            products: products,
+            searchOptions: req.query })
+    }catch{
+        res.redirect('/')
+    }
+};

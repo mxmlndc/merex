@@ -20,4 +20,7 @@ router.get('/dashboard/update/product:id', adminCtrl.editProduct)
 
 router.put('/dashboard/update/product:id', adminCtrl.updateProduct)
 
+router.get ('/search-result', adminCtrl.findOneProduct)
+
+
 export default router;

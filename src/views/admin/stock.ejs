@@ -22,16 +22,19 @@
                                 <table width="100%">
                                     <thead>
                                         <tr>
-                                            <td>ID</td>
-                                            <td>Producto</td>
+                                            <td>Marca</td>
+                                            <td>Tipo</td>
+                                            <td>presentación</td>
                                             <td>Stock</td>
+                                            <td>Estado</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <% products.forEach(product => { %>
                                             <tr>
-                                              <td><%= product._id%> </td>
-                                              <td><%= product.description%> </td>
+                                              <td><%= product.brand%> </td>
+                                              <td><%= product.category%></td>
+                                              <td><%= product.size%></td>
                                               <td><%= product.stock%> </td>
                                             </tr>
                                             <% }); %>
