@@ -9,8 +9,8 @@ import passport from "passport";
 import initialize from "../libs/passportConfig";
 initialize(
     passport, 
-    email => User.find(users => users.email === email),
-    id => User.find(users => users.id === id) 
+    email => User.find({email: req.body.email}),
+    id => User.find({_id: id}) 
     );
 
 
@@ -39,18 +39,17 @@ export const enter = async (req,res)=> {
 };
 
 export const loginUser = async (req, res)=> {
-    const { mail } = req.body; 
+    const { email } = req.body; 
     try {
-        const user = await User.find(mail);
+        const user = await User.findOne({email});
         await bcrypt.compare(req.body.password, user.password)
         res.redirect('/')
 
-    if (!user)
-        return res.render(path.resolve(__dirname,  '..', 'views', 'user', 'login'))
+    if (!user){
+        //return res.render(path.resolve(__dirname,  '..', 'views', 'user', 'login'))
+        return res.send('Todo salió bien')}
         }catch (error) {
-        res.status(500)({
-        message: error.message || "Something goes wrong"
-    })
+        res.send('No existe')
 }
 };
 

@@ -14,11 +14,11 @@ router.get ('/dashboard/new-product', adminCtrl.create)
 
 router.post ('/dashboard/new-product', adminCtrl.createProduct)
 
-router.delete ('/dashboard/delete/product:id', adminCtrl.deleteProduct)
+router.delete ('/dashboard/delete/:id', adminCtrl.deleteProduct)
 
-router.get('/dashboard/edit/product:id', adminCtrl.editProduct)
+router.get('/dashboard/edit/:id', adminCtrl.editProduct)
 
-router.put('/dashboard/update/product:id', adminCtrl.updateProduct)
+router.put('/dashboard/update/:id', adminCtrl.updateProduct)
 
 router.get ('/search-result', adminCtrl.findOneProduct)
 

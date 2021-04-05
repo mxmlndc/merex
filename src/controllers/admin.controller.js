@@ -40,7 +40,7 @@ export const deleteProduct = async (req,res) => {
     const { id } = req.params.id;
 
     try {
-        await Product.destroy(id)
+        await Product.findByIdAndDelete(id)
         res.redirect('/dashboard/product-list')
 
     } catch (error) {
@@ -53,7 +53,7 @@ export const deleteProduct = async (req,res) => {
 export const editProduct =async (req,res) => {
     const {id}  = req.params;
     try {
-        let productEdit = await Product.find(products => products.id == id) 
+        let productEdit = await Product.findOne({_id:id}) 
         res.render(path.resolve(__dirname, '..', 'views','admin','edit'), {productEdit});
     } catch (error) {
         res.status(500)({
@@ -67,9 +67,8 @@ export const updateProduct = async (req, res) => {
 
    try {
         await Product.findByIdAndUpdate(id, req.body);
-    res.json({
-        message: "product was updated successfully"
-    });
+    res.redirect('/dashboard/product-list')
+    
    } catch (error) {
         res.status(500)({
             message: error.message || `Error actualizando el id: ${id}`

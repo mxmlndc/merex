@@ -13,11 +13,11 @@ router.post ('/register', checkNoAuthenticated, userCtrl.createUser)
 
 router.get ('/login', checkNoAuthenticated, userCtrl.enter)
 
-router.post ('/login', checkNoAuthenticated, passport.authenticate('local', {
+router.post ('/login', /*checkNoAuthenticated, passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/register',
     failureFlash: true
-}), userCtrl.loginUser)
+}),*/ userCtrl.loginUser)
 
 router.delete('/logout', userCtrl.logOut)
 
