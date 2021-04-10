@@ -11,7 +11,9 @@ const userSchema = new Schema ({
     email: {type: String},
     cuitCuil: {type: Number},
     telephone: {type: Number},
-    adress: {type: String},
+    city: {type: String},
+    street: {type: String},
+    number: {type: Number},
     password: {type: String},
     cart: {
         items: [{

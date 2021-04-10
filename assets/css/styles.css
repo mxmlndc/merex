@@ -658,7 +658,7 @@ img{
     align-content: flex-start;
     display: grid;
     grid-template-columns: 100%;
-    height: 120vh;
+    height: 130vh;
     margin-left: 1.5rem;
     margin-right: 1.5rem;
 }
@@ -667,14 +667,7 @@ img{
     display: grid;
 }
 
-.login__img{
-    justify-self: center;
-}
 
-.login__img img{
-    width: 310px;
-    margin-top: 1.5rem;
-}
 
 .login__forms{
     position: absolute;
@@ -717,6 +710,17 @@ img{
 .login__box{
     display: grid;
     grid-template-columns: max-content 1fr;
+    column-gap: .5rem;
+    padding: 1.125rem 1rem;
+    background-color: var(--white-color);
+    margin-top: 1rem;
+    border-radius: .5rem;
+}
+
+.login__boxAdress{
+    display: grid;
+    text-align: start;
+    grid-template-columns: subgrid;
     column-gap: .5rem;
     padding: 1.125rem 1rem;
     background-color: var(--white-color);
@@ -792,8 +796,17 @@ img{
     display: none;
 }
 
+@media screen and (max-width: 576px){
+    .login__forms{
+        bottom: 35rem;
+        width: 348px;
+        justify-self: center;
+    }
+} 
+
 @media screen and (min-width: 576px){
     .login__forms{
+        bottom: 40rem;
         width: 348px;
         justify-self: center;
     }
@@ -854,3 +867,40 @@ img{
     border: none;
     outline: none;
 }
+
+.alert {
+    padding: 20px;
+    background-color: tomato;
+    color: white;
+  }
+
+.success {
+    padding: 20px;
+    background-color: rgb(54, 230, 133);
+    color: white;
+}
+
+  
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+  
+.closebtn:hover {
+    color: black;
+}
+
+.input-valid{
+    background-color: #b3fcbc;
+}
+
+ .input-invalid{
+    background-color:#f88484;
+
+} 

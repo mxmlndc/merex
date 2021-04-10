@@ -5,6 +5,7 @@ import path from "path";
 import { getPagination } from "../libs/getPagination";
 import bcrypt from "bcrypt";
 import passport from "passport";
+import { validationResult } from "express-validator";
 
 import initialize from "../libs/passportConfig";
 initialize(
@@ -19,19 +20,26 @@ export const index = async (req,res) => {
 };
 
 export const createUser = async (req, res)=> {
-    const hashedPassword = await bcrypt.hash(req.body.password, 10)
-    const newUser = new User()
-    newUser.firstName = req.body.firstName;
-    newUser.lastName = req.body.lastName;
-    newUser.email = req.body.email;
-    newUser.cuitCuil = req.body.cuitCuil;
-    newUser.telephone = req.body.telephone;
-    newUser.adress = req.body.adress;
-    newUser.password = hashedPassword;
-    
-    await newUser.save()
-    
-    res.redirect('/login')
+    const errors = validationResult(req); 
+    if (errors.isEmpty() ){
+        const hashedPassword = await bcrypt.hash(req.body.password, 10)
+        const newUser = new User()
+        newUser.firstName = req.body.firstName;
+        newUser.lastName = req.body.lastName;
+        newUser.email = req.body.email;
+        newUser.cuitCuil = req.body.cuitCuil;
+        newUser.telephone = req.body.telephone;
+        newUser.city = req.body.city;
+        newUser.street = req.body.street;
+        newUser.number = req.body.number;
+        newUser.password = hashedPassword;
+        
+        await newUser.save()
+        
+        res.redirect('/login')
+    }else {
+        res.render('/register', { errors: errors.errors });
+    }
  };
 export const enter = async (req,res)=> {
     res.render(path.resolve(__dirname, '..', 'views', 'user', 'login'))
@@ -39,10 +47,21 @@ export const enter = async (req,res)=> {
 };
 
 export const loginUser = async (req, res)=> {
+    const errors = validationResult(req);
+    if( errors.isEmpty() ) {
     const { email } = req.body; 
-    try {
-        const user = await User.findOne({email});
-        await bcrypt.compare(req.body.password, user.password)
+    //try {
+        const user = await User.findOne({email: new RegExp(`^${email}$`, 'i')});
+        user.password = null;
+            req.session.user = user;
+            if (req.body.rememberme) {
+                res.cookie('email', user.email, { maxAge: 1000 * 60 * 60 * 24 });
+            }
+            res.redirect('/');
+        } else {
+            res.render({ errors: errors.errors }, '/register');
+        }
+        /*await bcrypt.compare(req.body.password, user.password)
         res.redirect('/')
 
     if (!user){
@@ -50,7 +69,7 @@ export const loginUser = async (req, res)=> {
         return res.send('Todo salió bien')}
         }catch (error) {
         res.send('No existe')
-}
+}*/
 };
 
 export const logOut = async (req,res)=> {

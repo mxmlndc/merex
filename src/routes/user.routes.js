@@ -2,22 +2,18 @@ import {Router} from 'express'
 import * as userCtrl from "../controllers/user.controller";
 import bcrypt from "bcrypt";
 import passport from "passport";
-import checkNoAuthenticated from "../middlewares/checkNoAuthenticated";
 import methodOverride from "method-override";
+import * as userValid from "../middlewares/userValidator";
 
 const router = Router()
 
-router.get ('/register', checkNoAuthenticated, userCtrl.index)
+router.get ('/register', userCtrl.index)
 
-router.post ('/register', checkNoAuthenticated, userCtrl.createUser)
+router.post ('/register', userValid.signUp, userCtrl.createUser)
 
-router.get ('/login', checkNoAuthenticated, userCtrl.enter)
+router.get ('/login', userCtrl.enter)
 
-router.post ('/login', /*checkNoAuthenticated, passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/register',
-    failureFlash: true
-}),*/ userCtrl.loginUser)
+router.post ('/login', userValid.signIn, userCtrl.loginUser)
 
 router.delete('/logout', userCtrl.logOut)
 

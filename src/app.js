@@ -16,6 +16,7 @@ import methodOverride from "method-override";
 import bodyParser from "body-parser";
 import fs from "fs";
 import mongoose from "mongoose";
+import bcrypt from "bcrypt";
 
 import UserRoutes from "./routes/user.routes";
 import ProductRoutes from "./routes/product.routes";

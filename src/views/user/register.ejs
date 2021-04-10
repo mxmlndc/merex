@@ -2,7 +2,7 @@
 <html lang="en">
     <!--Head-->    
     <%- include('../partials/head') %>
-<body>
+<body> 
     <main class="l-main">
         <div class="login-r">
             <div class="login__content">
@@ -14,42 +14,113 @@
                 <!--Login-->
                 <div class="login__forms">
                     <!-- Registro-->
-                    <form action="/register" class="login__registre" id="login-up" method="POST" enctype="multipart/form-data">
+                    <% if(typeof(errors) != 'undefined'){%>
+                        <div class="alert">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                            Hubo problemas con el registro.
+                        </div> 
+                        <%} else {%>
+                         <div class="success">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                            Ya estás registrado!
+                        </div> 
+                    <%}%> 
+                    <form action="/register" class="login__registre rounded" id="login-up" method="POST" enctype="multipart/form-data">
                         <h1 class="login__title">CREAR CUENTA</h1>
-
+                    <!--Errores front-->
+                        <div>
+                            <ul id="errores"></ul>
+                        </div>
+                     <% if (typeof(errores)!='undefined'){ %> 
+                         <ul class="alert">
+                             <% errores.forEach(error =>{ %>
+                                 <li><%= error.msg %> </li>
+                             <%})%> 
+                         </ul>            
+                     <% } %>
+                        
                         <div class="login__box">
                             <label for="firstName"><i class='bx bx-user login__icon'></i></label>
-                            <input type="text"  name="firstName" id="firstName" placeholder="Nombre" class="login__input" required>
+                            <% if(typeof(errors) != 'undefined' && errors.firstName){%>
+                                <div class="alert">
+                                  <%= errors.firstName.msg %>
+                                </div>
+                             <%}%>
+                            <input type="text"  name="firstName" id="firstName" placeholder="Nombre" class="login__input" value="<%= typeof old != 'undefined' ? old.firstName : '' %>" required>
                         </div>
 
                         <div class="login__box">
                             <label for="lastName"><i class='bx bx-user login__icon'></i></label>
-                            <input type="text"  name="lastName" id="lastName" placeholder="Apellido" class="login__input" required>
+                            <% if(typeof(errors) != 'undefined' && errors.lastName){%>
+                                <div class="alert">
+                                  <%= errors.lastName.msg %>
+                                </div>
+                             <%}%>
+                            <input type="text"  name="lastName" id="lastName" placeholder="Apellido" class="login__input" value="<%= typeof old != 'undefined' ? old.lastName : '' %>" required>
                         </div>
 
                         <div class="login__box">
                             <label for="email"><i class='bx bx-at login__icon'></i></label>
-                            <input type="email" name="email" id="email" placeholder="Email" class="login__input" required>
+                            <% if(typeof(errors) != 'undefined' && errors.email){%>
+                                <div class="alert">
+                                  <%= errors.email.msg %>
+                                </div>
+                             <%}%>
+                            <input type="email" name="email" id="email" placeholder="Email" class="login__input" value="<%= typeof old != 'undefined' ? old.email : '' %>" required>
                         </div>
 
                         <div class="login__box">
                             <label for="cuitCuil"><i class='bx bx-id-card login__icon' ></i></label>
-                            <input type="number" name="cuitCuil" id="cuitCuil" placeholder="CUIT/CUIL(sin guiónes)" class="login__input" required>
+                            <% if(typeof(errors) != 'undefined' && errors.cuitCuil){%>
+                                <div class="alert">
+                                  <%= errors.cuitCuil.msg %>
+                                </div>
+                             <%}%>
+                            <input type="number" name="cuitCuil" id="cuitCuil" placeholder="CUIT/CUIL(sin guiónes)" class="login__input" value="<%= typeof old != 'undefined' ? old.cuitCuil : '' %>" required>
                         </div>
 
-                        <div class="login__box">
-                            <label for="adress"><i class='bx bx-home login__icon' ></i></label>
-                            <input type="text" name="adress" id="adress" placeholder="Dirección" class="login__input" required>
+                        <div class="login__boxAdress">
+                            <label for="city"><i class='bx bx-home login__icon' ></i></label>
+                            <% if(typeof(errors) != 'undefined' && errors.city){%>
+                                <div class="alert">
+                                  <%= errors.city.msg %>
+                                </div>
+                             <%}%>
+                            <input type="text" name="city" id="city" placeholder="Ciudad" class="login__input" value="<%= typeof old != 'undefined' ? old.city : '' %>" required>
+                            <label for="street"></i></label>
+                            <% if(typeof(errors) != 'undefined' && errors.street){%>
+                                <div class="alert">
+                                  <%= errors.street.msg %>
+                                </div>
+                             <%}%>
+                            <input type="text" name="street" id="street" placeholder="Calle" class="login__input" value="<%= typeof old != 'undefined' ? old.street : '' %>" required>
+                            <label for="number"></i></label>
+                            <% if(typeof(errors) != 'undefined' && errors.number){%>
+                                <div class="alert">
+                                  <%= errors.number.msg %>
+                                </div>
+                             <%}%>
+                            <input type="number" name="number" id="number" placeholder="Altura" class="login__input" value="<%= typeof old != 'undefined' ? old.number : '' %>" required>
                         </div>
 
                         <div class="login__box">
                             <label for="telephone"><i class='bx bx-phone login__icon'></i></label>
-                            <input type="tel" name="telephone" id="telephone" placeholder="Teléfono" class="login__input" required>
+                            <% if(typeof(errors) != 'undefined' && errors.telephone){%>
+                                <div class="alert">
+                                  <%= errors.telephone.msg %>
+                                </div>
+                             <%}%>
+                            <input type="tel" name="telephone" id="telephone" placeholder="Teléfono" class="login__input" pattern="11[0-9]{1}[0-9]{3}[0-9]{4}" value="<%= typeof old != 'undefined' ? old.telephone : '' %>" required>
                         </div>
 
                         <div class="login__box">
                             <label for="password"><i class='bx bx-lock login__icon'></i></label>
-                            <input type="password" name="password" id="password" placeholder="Contraseña" class="login__input" required>
+                            <% if(typeof(errors) != 'undefined' && errors.password){%>
+                                <div class="alert">
+                                  <%= errors.password.msg %>
+                                </div>
+                             <%}%>
+                            <input type="password" name="password" id="password" placeholder="Contraseña" class="login__input" value="<%= typeof old != 'undefined' ? old.password : '' %>" required>
                         </div>
 
                         <div class="login__box">

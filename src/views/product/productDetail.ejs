@@ -9,10 +9,10 @@
                 <img src="/img/<%= product.image %>" alt="">
             </div>
             <div class="card__name">
-                <p style="text-transform:uppercase"><%=product.category %> <%= product.brand %> <%= product.size %></p>
+                <p class="size" style="text-transform:uppercase"><%=product.category %> <%= product.brand %> <%= product.size %></p>
             </div>
             <div class="card__precis">
-                <a href="/shop" class="card__icon" ><i class='bx bx-left-arrow-alt'></i></a>
+                <a href="/shop" class="card__icon flecha" ><i class='bx bx-left-arrow-alt'></i></a>
                 
                 <div>
                     <span class="card__preci card__preci--iva"><%=product.description %></span>   
@@ -25,7 +25,7 @@
                 </div>
                 <form action="/add-to-cart" method="POST">
                     <input type="hidden" name="id" value="<%=product._id%>">
-                    <button type="submit" style="background: none; border: none; text-decoration: none;"><a href="/shoppingCart" class="card__icon"><i class='bx bx-cart' ></i></a></button>
+                    <button type="submit" class="carrito" style="background: none; border: none; text-decoration: none;"><a href="/shoppingCart" class="card__icon"><i class='bx bx-cart' ></i></a></button>
                 </form>
             </div>
         </article>
