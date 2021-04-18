@@ -12,7 +12,7 @@ window.addEventListener('load',function(){
         function validaciones(evento){
        
             //Destructuring  
-            let {firstName,lastName,email,cuitCuil,telephone,city,street,number,password} = formulario.elements;
+            let {firstName,lastName,cuitCuil,telephone,city,street,number,email,password} = formulario.elements;
             let errores = [];
             console.log(formulario.elements.email);
 

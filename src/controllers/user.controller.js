@@ -38,7 +38,9 @@ export const createUser = async (req, res)=> {
         
         res.redirect('/login')
     }else {
-        res.render('/register', { errors: errors.errors });
+        return res.render('/register', {
+            errors: errors.mapped(), old: req.body
+        });
     }
  };
 export const enter = async (req,res)=> {

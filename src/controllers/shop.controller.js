@@ -1,6 +1,7 @@
 import path from "path";
 import User from "../models/user";
 import Product from "../models/product";
+import Cart from "../models/cart";
 
 export const addToCart = (req,res) => {
     req.user.addToCart(req.body.id)

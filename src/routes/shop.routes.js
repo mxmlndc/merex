@@ -6,7 +6,7 @@ import checkAuthenticated from "../middlewares/checkAuthenticated";
 
 const router = Router()
 
-router.get ('/shoppingCart', checkAuthenticated, shopCtrl.getCart)
+router.get ('/shoppingCart', /*checkAuthenticated,*/ shopCtrl.getCart)
 
 router.post('/add-to-cart', shopCtrl.addToCart);
 

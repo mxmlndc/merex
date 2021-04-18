@@ -5,7 +5,7 @@
 <body>
     <main class="main bd-grid">
         <article class="card">
-            <% if (cart === null || cart.items.length == 0) {%>
+            <% if (Cart === null || cart.items.length == 0) {%>
                 <h2>No item in shopping Cart</h2>
                 <%} else {%>
                     <h2>Shopping Cart Detail</h2>
@@ -38,7 +38,7 @@
                                     </td>
                                     <td>
                                         <form action="/delete-cart" method="POST">
-                                            <input type="hidden" name="prodId" value="<%= eachItem.productId._id%>">
+                                            <input type="hidden" name="prodId" value="<%= eachItem.productId.id%>">
                                             <button type="submit" class="btn btn-primary">Delete</button>
                                         </form>
                                     </td>

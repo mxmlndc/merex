@@ -1,8 +1,5 @@
 import {Router} from 'express'
 import * as userCtrl from "../controllers/user.controller";
-import bcrypt from "bcrypt";
-import passport from "passport";
-import methodOverride from "method-override";
 import * as userValid from "../middlewares/userValidator";
 
 const router = Router()

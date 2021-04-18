@@ -13,7 +13,13 @@ export const signIn = [
                 return true;
             }
             return Promise.reject('Non-existent user or invalid password');
-        })
+        }),
+        check('email').isLength({
+            min: 1
+          }).withMessage('El email no puede estar vacío'),
+        check('password').isLength({
+            min: 1
+          }).withMessage('La contraseña no puede estar vacía')
     ]
 
 export const signUp = [
